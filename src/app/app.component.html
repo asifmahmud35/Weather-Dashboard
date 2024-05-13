@@ -1,0 +1,18 @@
+
+<div class="container">
+  <div class="card">
+    <div class="header">
+      <h1>Weather Dashboard </h1>
+    </div>
+   
+
+    <app-city-selector (cityChanged)="onCityChanged($event)" (searchTextChange)="onSearchTextChanged($event)"></app-city-selector>
+    <app-weather-display [selectedCity]="selectedCity" [searchText]="searchText"></app-weather-display>
+<div class="clear">
+    <button (click)="clearPage()">Clear</button>
+  </div>
+    <div class="footer">
+      <p>&copy; 2024 Weather App</p>
+    </div>
+  </div>
+</div>

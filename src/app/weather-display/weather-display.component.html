@@ -1,0 +1,13 @@
+<div class="weather-cards" *ngIf="selectedCity || searchText"> 
+  <div *ngFor="let city of cities" class="weather-card" [hidden]="!isCityDisplayed(city.name)">
+
+    <h3 class="city-name">{{ city.name }}</h3> 
+    <div class="city-image">
+      <img [src]="getWeatherImage(city.weather)" alt="City Image"> 
+    </div>
+    <div class="weather-details">
+      <p class="temperature">Temperature: <span>{{ city.temperature }}</span> °C</p> 
+      <p class="weather">Weather: <span>{{ city.weather }}</span></p> 
+    </div>
+  </div>
+</div>

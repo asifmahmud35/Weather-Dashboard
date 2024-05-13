@@ -1,0 +1,12 @@
+[
+  { "name": "New York", "temperature": 22, "weather": "Sunny", "image": "" },
+  { "name": "London", "temperature": 15, "weather": "Cloudy", "image": "" },
+  { "name": "Tokyo", "temperature": 27, "weather": "Rainy", "image": "" },
+  { "name": "Paris", "temperature": 18, "weather": "Partly Cloudy", "image": "" },
+  { "name": "Sydney", "temperature": 25, "weather": "Sunny", "image": "" },
+  { "name": "Rome", "temperature": 20, "weather": "Clear", "image": "" },
+  { "name": "Dubai", "temperature": 30, "weather": "Sunny", "image": "" },
+  { "name": "Moscow", "temperature": 17, "weather": "Partly Cloudy", "image": "" },
+  { "name": "Beijing", "temperature": 18, "weather": "Partly Cloudy", "image": "" },
+  { "name": "Dhaka", "temperature": 28, "weather": "Sunny", "image": "" }
+]

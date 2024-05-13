@@ -1,0 +1,36 @@
+.weather-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+}
+
+.weather-card {
+  width: 300px;
+  margin: 10px; 
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+
+.city-name {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.city-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.weather-details {
+  margin-top: 15px;
+  max-height: 150px; 
+  overflow: hidden; 
+}
+
+.temperature,
+.weather {
+  margin: 5px 0;
+}

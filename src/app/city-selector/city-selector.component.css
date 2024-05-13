@@ -1,0 +1,27 @@
+
+.input-container {
+    display: flex; 
+    align-items: center; 
+  }
+  
+  
+  input[type="text"],
+  select {
+    padding: 10px; 
+    font-size: 16px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    width: 300px; 
+  }
+  
+
+  select {
+    appearance: none; 
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>'); /* Add custom dropdown arrow */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 20px; 
+    cursor: pointer; 
+    margin-left: 10px; 
+  }
+  
