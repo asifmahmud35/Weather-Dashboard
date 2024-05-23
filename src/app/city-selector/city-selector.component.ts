@@ -32,21 +32,23 @@ export class CitySelectorComponent {
   }
 
   onCityChanged() {
+    this.searchText = ''; 
+    this.searchTextChange.emit(this.searchText);
     this.cityChanged.emit(this.selectedCity);
   }
 
   onSearchTextChanged() {
-    this.searchTextChange.emit(this.searchText); 
+    this.selectedCity = ''; 
+    this.cityChanged.emit(this.selectedCity);
+    this.searchTextChange.emit(this.searchText);
+
     if (this.searchText) {
-      
       this.suggestedCities = this.cities
-        .filter(city => city.toLowerCase().includes(this.searchText.toLowerCase()))
-        .slice(0, 1); 
+        .filter(city => city.name.toLowerCase().includes(this.searchText.toLowerCase()))
+        .slice(0, 1);
     } else {
-     
       this.suggestedCities = [];
     }
-
   }
  
 }
