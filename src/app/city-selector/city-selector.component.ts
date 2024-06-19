@@ -1,54 +1,42 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CityService } from '../city.service';
 
 @Component({
   selector: 'app-city-selector',
   templateUrl: './city-selector.component.html',
-  styleUrls: ['./city-selector.component.css']
+  styleUrl: './city-selector.component.css'
 })
 export class CitySelectorComponent {
-  selectedCity: string = '';
-  cities: any[] = [];
-  searchText: string = ''; 
-  suggestedCities: string[] = [];
+  @Input() cities: any[] = [];
   @Output() cityChanged = new EventEmitter<string>();
-  @Output() searchTextChange = new EventEmitter<string>(); // Declare searchTextChange as Output
+  isOpen: boolean = false;
+  searchText: string = '';
+  filteredCities: any[] = [];
 
   constructor(private cityService: CityService) { }
 
-  ngOnInit(): void {
-    this.loadCities();
-  }
-
-  loadCities() {
-    this.cityService.getCities().subscribe(
-      cities => {
-        this.cities = cities;
-      },
-      error => {
-        console.error('Error fetching cities:', error);
-      }
-    );
-  }
-
-  onCityChanged() {
-    this.searchText = ''; 
-    this.searchTextChange.emit(this.searchText);
-    this.cityChanged.emit(this.selectedCity);
-  }
-
-  onSearchTextChanged() {
-    this.selectedCity = ''; 
-    this.cityChanged.emit(this.selectedCity);
-    this.searchTextChange.emit(this.searchText);
-
-    if (this.searchText) {
-      this.suggestedCities = this.cities
-        .filter(city => city.name.toLowerCase().includes(this.searchText.toLowerCase()))
-        .slice(0, 1);
+  toggleDropdown() {
+    this.isOpen = !this.isOpen;
+    if (this.isOpen) {
+      this.filteredCities = this.cities;
     } else {
-      this.suggestedCities = [];
+      this.searchText = '';
+      this.filteredCities = [];
     }
   }
- 
+  onSearchTextChanged() {
+    if (this.searchText) {
+      this.filteredCities = this.cities.filter(city =>
+        city.name.toLowerCase().includes(this.searchText.toLowerCase())
+      );
+    } else {
+      this.filteredCities = this.cities;
+    }
+  }
+
+  selectCity(city: any) {
+    this.searchText = city.name;
+    this.cityChanged.emit(city.name);
+    this.toggleDropdown();
+  }
 }

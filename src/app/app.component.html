@@ -1,18 +1,13 @@
-
-<div class="container">
-  <div class="card">
-    <div class="header">
-      <h1>Weather Dashboard </h1>
+<div class="container d-flex justify-content-center align-items-center min-vh-100 bg-light">
+  <div class="card p-4 shadow-lg rounded" style="width: 850px; height: 650px; ">
+    <div class="text-center mb-4">
+      <h1 class="text-black">Weather Dashboard</h1>
     </div>
-   
 
-    <app-city-selector (cityChanged)="onCityChanged($event)" (searchTextChange)="onSearchTextChanged($event)"></app-city-selector>
-    <app-weather-display [selectedCity]="selectedCity" [searchText]="searchText"></app-weather-display>
-<div class="clear">
-    <button (click)="clearPage()">Clear</button>
-  </div>
-    <div class="footer">
-      <p>&copy; 2024 Weather App</p>
+    <app-city-selector [cities]="cities" (cityChanged)="onCityChanged($event)"></app-city-selector>
+
+    <div class="d-flex justify-content-center align-items-center flex-grow-1 my-4">
+      <app-weather-display [selectedCity]="selectedCity"></app-weather-display>
     </div>
   </div>
 </div>

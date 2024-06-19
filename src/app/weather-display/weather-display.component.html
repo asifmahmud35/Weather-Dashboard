@@ -1,13 +1,12 @@
-<div class="weather-cards" *ngIf="selectedCity || searchText"> 
-  <div *ngFor="let city of cities" class="weather-card" [hidden]="!isCityDisplayed(city.name)">
-
-    <h3 class="city-name">{{ city.name }}</h3> 
+<div class="card weather-card" *ngIf="selectedCity">
+  <div class="card-body">
+    <h3 class="city-name">{{ selectedCity }}</h3>
     <div class="city-image">
-      <img [src]="getWeatherImage(city.weather)" alt="City Image"> 
+      <img [src]="getWeatherImage(getCityWeather(selectedCity))" class="img-fluid rounded" alt="City Image">
     </div>
-    <div class="weather-details">
-      <p class="temperature">Temperature: <span>{{ city.temperature }}</span> °C</p> 
-      <p class="weather">Weather: <span>{{ city.weather }}</span></p> 
+    <div class="weather-details mt-3">
+      <p class="temperature">Temperature: <span>{{ getCityTemperature(selectedCity) }}</span> °C</p>
+      <p class="weather">Weather: <span>{{ getCityWeather(selectedCity) }}</span></p>
     </div>
   </div>
 </div>

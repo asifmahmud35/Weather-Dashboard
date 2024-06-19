@@ -1,11 +1,11 @@
-
-<div class="input-container">
-    
-    <input type="text" [(ngModel)]="searchText" (input)="onSearchTextChanged()" placeholder="Search city...">
-    
-  
-    <select [(ngModel)]="selectedCity" (change)="onCityChanged()">
-      <option *ngFor="let city of cities" [ngValue]="city.name">{{ city.name }}</option>
-    </select>
+<div class="dropdown">
+  <button class="dropdown-toggle" type="button" (click)="toggleDropdown()"
+    [attr.aria-expanded]="isOpen ? 'true' : 'false'">
+    Select City
+  </button>
+  <div class="dropdown-menu" [ngClass]="{ 'show': isOpen }" aria-labelledby="dropdownMenuButton">
+    <input type="text" class="form-control" placeholder="Search city..." [(ngModel)]="searchText"
+      (input)="onSearchTextChanged()">
+    <a *ngFor="let city of filteredCities" class="dropdown-item" href="#" (click)="selectCity(city)">{{ city.name }}</a>
   </div>
-  
+</div>
